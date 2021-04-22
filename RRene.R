@@ -284,9 +284,13 @@ cancer_stats <- as.data.frame(read.csv("https://www.dropbox.com/s/g97bsxeuu0tajk
 View(cancer_stats)
 
 is.na(cancer_stats)
-min(cancer_stats$Male.Deaths, na.rm=TRUE)
+cancer_stats$Site[max(cancer_stats$Female.Cases/cancer_stats$Female.Deaths, na.rm=TRUE)]
 
-which.max(cancer_stats$Female.Deaths)
+#Para qual local do câncer (site) do sistema digestivo (Digestive System) existem mais casos femininos do que masculinos?
+
+cancer_stats$Site[cancer_stats$Class=="Digestive System" & cancer_stats$Female.Cases>cancer_stats$Male.Cases]
+
+
 
 
 
