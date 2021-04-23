@@ -247,7 +247,8 @@ mean(air$Solar.R [(air$Ozone>25) & (air$Temp)<90], na.rm = TRUE)
 genomas <- as.data.frame(read.csv("https://www.dropbox.com/s/vgh6qk395ck86fp/genomes.csv?dl=1")); genomas
 
 summary(genomas$Chromosomes)
-
+#Quantos grupos diferentes existem? *
+  
 #mostra os levels
 #quantidade devezes que os valores aparecem repetidamente
 #Exemplo 000 111
@@ -273,7 +274,8 @@ genomas$Organism[(genomas$Chromosomes>1)&(genomas$Plasmids>0)]
 
 #genomas$Chromosomes <-ifelse(genomas$Chromosomes>2000,0,0);genomas$Chromosomes
 
-
+#Carregue o arquivo cancer_stats.csv numa variável chamada cancer_stats através do seguinte comando: cancer_stats <- as.data.frame(read.csv("https://www.dropbox.com/s/g97bsxeuu0tajkj/cancer_stats.csv?dl=1")). 
+#De posse desse dado, responda as perguntas abaixo.
 #dataframe Cancer 
 
 cancer_stats <- as.data.frame(read.csv("https://www.dropbox.com/s/g97bsxeuu0tajkj/cancer_stats.csv?dl=1"))
@@ -291,9 +293,11 @@ cancer_stats$Site[max(cancer_stats$Female.Cases/cancer_stats$Female.Deaths, na.r
 cancer_stats$Site[cancer_stats$Class=="Digestive System" & cancer_stats$Female.Cases>cancer_stats$Male.Cases]
 
 
-
-
-
+#Qual local do câncer tem a melhor taxa de sobrevivência para os homens? *
+  
+which.max(cancer_stats$Male.Cases/(cancer_stats$Male.Cases+cancer_stats$Male.Deaths))
+#Qual local de câncer tem a pior taxa de sobrevivência para as mulheres?
+which.min(cancer_stats$Female.Cases/(cancer_stats$Female.Cases+cancer_stats$Female.Deaths))
 
 
 
