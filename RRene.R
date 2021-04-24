@@ -263,7 +263,7 @@ View (summary(genomas$Groups))
 #Selecione os organismos com mais de 40 cromossomos. 
 genomas$Chromosomes>40
 
-#Selecione os organismos que contém plasmídeos e também possui mais de um cromossomo.
+#Selecione os organismos que contém plasm�eos e também possui mais de um cromossomo.
 genomas$Organism[(genomas$Chromosomes>1)&(genomas$Plasmids>0)]
 
 
@@ -300,8 +300,10 @@ which.max(cancer_stats$Male.Cases/(cancer_stats$Male.Cases+cancer_stats$Male.Dea
 which.min(cancer_stats$Female.Cases/(cancer_stats$Female.Cases+cancer_stats$Female.Deaths))
 
 
+#String e express�es regulaters
 
-
+cat("EU","AMO ", "RURAL")
+#CONCATENA TUDO 
 
 
 
