@@ -309,6 +309,42 @@ cat("EU","AMO ", "RURAL")
 
 
 
+#Familia apply na porra do datset
+
+bebidas <- c ("Brahma", "cacildis", " heineken","Skol","Corona", "BudLight", "Debron", "buderweiser","Ekaut","Snoe beer","Bavaria","Bohemia","Crystal","Kaiser","Itaipava","Schin","Antartica","Amstel","Colorado","Capunga")
+
+set.seed(100)
+#gerar os memos valores aleatorios
+precos <- runif(20, min = 2, max=10)
+vendas <-runif(20, min=20, max=100)
+estoques<-sample(c(20:50),size = 20,replace = TRUE)
+#vinta volores de 20a 50
+
+dataset_lojas <- data.frame(id_produto=c(1:20), Bebidas=bebidas,preco=precos,total_vendas=vendas,total_estoques = estoques)
+head(dataset_lojas)
+
+apply(X=dataset_lojas[, -c(1,2)],MARGIN = 2, FUN = sum)
+#funcao soma, margen 2 que é a coluna se fosse 1 seria linhas
+#todas com excecao -c 1 e 2
+lapply(X = dataset_lojas[,-c(1,2)], FUN=sum)
+#retorna em uma lista
+sapply(X=dataset_lojas[,-c(1,2)], FUN=sum)
+#retornae m vetor
+#A funçao (FUN) pode ser criada
+
+sapply(X=dataset_lojas, FUN=class)
+
+
+#para ver as classes
+
+
+
+sapply(X=dataset_lojas, FUN=length)
+
+sapply(X=dataset_lojas$Bebidas, FUN=nchar)
+#conta a quantidade de carctere da coluna do dataset
+
+
 
 
 
