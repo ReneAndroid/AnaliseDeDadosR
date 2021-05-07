@@ -263,7 +263,7 @@ View (summary(genomas$Groups))
 #Selecione os organismos com mais de 40 cromossomos. 
 genomas$Chromosomes>40
 
-#Selecione os organismos que contém plasm�eos e também possui mais de um cromossomo.
+#Selecione os organismos que contém plasm?eos e também possui mais de um cromossomo.
 genomas$Organism[(genomas$Chromosomes>1)&(genomas$Plasmids>0)]
 
 
@@ -300,7 +300,7 @@ which.max(cancer_stats$Male.Cases/(cancer_stats$Male.Cases+cancer_stats$Male.Dea
 which.min(cancer_stats$Female.Cases/(cancer_stats$Female.Cases+cancer_stats$Female.Deaths))
 
 
-#String e express�es regulaters
+#String e express?es regulaters
 
 cat("EU","AMO ", "RURAL")
 #CONCATENA TUDO 
@@ -324,13 +324,13 @@ dataset_lojas <- data.frame(id_produto=c(1:20), Bebidas=bebidas,preco=precos,tot
 head(dataset_lojas)
 
 apply(X=dataset_lojas[, -c(1,2)],MARGIN = 2, FUN = sum)
-#funcao soma, margen 2 que � a coluna se fosse 1 seria linhas
+#funcao soma, margen 2 que ? a coluna se fosse 1 seria linhas
 #todas com excecao -c 1 e 2
 lapply(X = dataset_lojas[,-c(1,2)], FUN=sum)
 #retorna em uma lista
 sapply(X=dataset_lojas[,-c(1,2)], FUN=sum)
 #retornae m vetor
-#A fun�ao (FUN) pode ser criada
+#A fun?ao (FUN) pode ser criada
 
 sapply(X=dataset_lojas, FUN=class)
 
@@ -344,6 +344,12 @@ sapply(X=dataset_lojas, FUN=length)
 sapply(X=dataset_lojas$Bebidas, FUN=nchar)
 #conta a quantidade de carctere da coluna do dataset
 
+#atividade 6
+
+while (T) {
+
+}
+for (i in 1:4){ }  print(i)
 
 
 
@@ -351,11 +357,88 @@ sapply(X=dataset_lojas$Bebidas, FUN=nchar)
 
 
 
+USArrests 
+
+prisoes <- function (estados,tiposPrisoes){
+  
+  prisoes(estados="Tennessee", tiposPrisoes=c("Rape","Murder")) 
+}
+
+sapply(X=USArrests, FUN=sum)
+
+iris
+
+apply(iris[ , 1:4], 1, FUN = mean)
 
 
 
 
 
+apply(iris[ , 1:4], 2, FUN = mean) #media
+
+sapply(iris[ , 1:4], 2, FUN = mean)
+
+mapply(iris[ , 1:4], mean)
+
+apply(iris[1:4, ], 2, FUN = mean)
+
+
+tapply(iris$Petal.Length, iris$Species, mean)
+
+
+tapply(iris[,3], iris$Species, mean)
+
+with(iris, tapply(Petal.Length, Species, mean))
+
+sapply(iris, 2, mean)
+
+mapply(iris$Petal.Length, iris$Species, mean)
+
+mean(iris$Petal.Length, iris$Species)
+
+
+minhasNotas_1(Exe_1=c(NA,NA,7.5,1,10,2,5,6,7,8,10), VA_1=4, Exe_2=c(7,11,8.8,5,7,8), Proj=4, VA_2=7, VA_3=9, Opt=4, threshold=7) 
+
+
+student.df = data.frame (nome= c ("Sue", "Eva", "Henry", "Jan"), sexo= c ("f", "f", "m", "m"), anos= c (21,15,17,19))
+
+
+#/////////////////////////////////
+
+#String e regexec(
+
+  #strings <- c ("^ab","ab", "abc", "abd","abe", "ab 12")
+strings <- c ("abcd","cdab", "cabd","c abd")
 
 
 
+  grep ("ab.", strings, value=TRUE)
+  
+  # ^ inicio
+  #$ fim da string
+  #
+  string <- c ("amo a rural ")
+  grep ("ab", strings, value=TRUE)
+  grep ("^ab", strings, value=TRUE)
+  grep ("ab$", strings, value=TRUE)
+  gsub("\\d","_", string)
+  
+  grep("abc|abd", strings, value = TRUE)
+
+  bomdia <- c ("bom-dia", "boa-tarde", "boa-noite")
+  
+  grep("boa-(tarde|noite)", bomdia, value=TRUE)
+  
+  
+  #
+  
+  
+  #remove espaços em branco ou tabs
+  gsub(pattern = "[[:blank:]]", replacement = "", texto)
+  
+  #Substitui pontuação por espaços em branco
+  gsub (pattern = "[[:punct:]]", replacement=" ", texto)
+  
+  #remove caracteres alfanumeriocos
+  
+  gsub (pattern = "[[:alnum:]]", replacement = "", texto)
