@@ -419,8 +419,11 @@ strings <- c ("abcd","cdab", "cabd","c abd")
   #
   string <- c ("amo a rural ")
   grep ("ab", strings, value=TRUE)
+  # se tiver ab dentro da string é retornada
   grep ("^ab", strings, value=TRUE)
+  #se tiver no comeco da string
   grep ("ab$", strings, value=TRUE)
+  #se tinver ab no fim da string
   gsub("\\d","_", string)
   
   grep("abc|abd", strings, value = TRUE)
@@ -445,7 +448,7 @@ strings <- c ("abcd","cdab", "cabd","c abd")
   
   
   string <- "meu numero é 1006781"
-  #Estrai somente o numero da string
+  #Extrai somente o numero da string
   gsub (pattern ="[^0-9]", replacement = "", x=string)
   
   
@@ -461,9 +464,27 @@ strings <- c ("abcd","cdab", "cabd","c abd")
   gsub (pattern= ".*:", replacement = "", x= StringN)
   #extrair informaçoes contidas dentro de uma string
   
+  
+  
+  #[:punct:]: punctuation.
+  #[:alpha:]: letters.
+  #[:lower:]: lowercase letters.
+  #[:upper:]: upperclass letters.
+  #[:digit:]: digits.
+  #[:xdigit:]: hex digits.
+  #[:alnum:]: letters and numbers.
+  #[:cntrl:]: control characters.
+  #[:graph:]: letters, numbers, and punctuation.
+  #[:print:]: letters, numbers, punctuation, and whitespace.
+  #[:space:]: space characters (basically equivalent to \s).
+  #[:blank:]: space and tab.
+  
+  
+  
+  
   library (stringr)
   
-  stringS <- "Oq vai fazer amanha? (Estudar CPAD) vervideo (jogar) ( jogar)"
+  stringS <- "Oq vai fazer amanha? (Estudar CPAD) ver video (jogar) ( jogar)"
   
   str_extract_all(stringS, "\\(.*?\\)")[[1]]
   
@@ -476,3 +497,23 @@ strings <- c ("abcd","cdab", "cabd","c abd")
   
   #\\s procura qualquer coisa 
   #\\ pega tudo antes do @ que não seja espaço
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  #Exercicio lista string 
+  
+  txt = c("eeer","3ca1n","fg","can","man","sigmean","fa3nta","fan")
+  
+  grep ("^c|^m|^f+(an$)",txt,value=TRUE)
+  
+  library(stringr)
+  
+  txt = "eeer3GHJca1nfgSigmanfaUIOntafan"
+  str_extract_all(string=txt,pattern="[[:upper:][:digit:]]") 
+  
