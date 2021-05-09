@@ -442,3 +442,37 @@ strings <- c ("abcd","cdab", "cabd","c abd")
   #remove caracteres alfanumeriocos
   
   gsub (pattern = "[[:alnum:]]", replacement = "", texto)
+  
+  
+  string <- "meu numero é 1006781"
+  #Estrai somente o numero da string
+  gsub (pattern ="[^0-9]", replacement = "", x=string)
+  
+  
+  valores <- c("A1", "A2", "A3","A4","A5","A6", "A7")
+  #vai buscar as posições pesquisadas
+  grep (pattern = "A1|A4", x=valores, value= FALSE)
+  
+  
+  # . é qualquer coisa
+  # * é antes
+#vai pegar tudo antes dos dois pontos e vai substituir= replacement por branco
+  StringN <- c("G1:E001", "G2:E002", "G3:E003" )
+  gsub (pattern= ".*:", replacement = "", x= StringN)
+  #extrair informaçoes contidas dentro de uma string
+  
+  library (stringr)
+  
+  stringS <- "Oq vai fazer amanha? (Estudar CPAD) vervideo (jogar) ( jogar)"
+  
+  str_extract_all(stringS, "\\(.*?\\)")[[1]]
+  
+  
+  #pegar emails
+  
+  stringMail <- c ("reneandraderhc@gmail.com que porcara reneandraderhc@hotmail.com")
+  
+  str_extract_all(string=stringMail, pattern= "\\S*@\\S*")
+  
+  #\\s procura qualquer coisa 
+  #\\ pega tudo antes do @ que não seja espaço
