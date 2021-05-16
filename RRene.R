@@ -280,6 +280,7 @@ genomas$Organism[(genomas$Chromosomes>1)&(genomas$Plasmids>0)]
 
 cancer_stats <- as.data.frame(read.csv("https://www.dropbox.com/s/g97bsxeuu0tajkj/cancer_stats.csv?dl=1"))
 
+
 #min() # para retornar o menor valor
 #which.min() # para retornar a posiÃ§Ã£o do menor valor
 
@@ -403,9 +404,9 @@ minhasNotas_1(Exe_1=c(NA,NA,7.5,1,10,2,5,6,7,8,10), VA_1=4, Exe_2=c(7,11,8.8,5,7
 student.df = data.frame (nome= c ("Sue", "Eva", "Henry", "Jan"), sexo= c ("f", "f", "m", "m"), anos= c (21,15,17,19))
 
 
-#----------------------------------------------------------
+#/////////////////////////////////
 
-#String e regexec
+#String e regexec(
 
   #strings <- c ("^ab","ab", "abc", "abd","abe", "ab 12")
 strings <- c ("abcd","cdab", "cabd","c abd")
@@ -416,256 +417,95 @@ strings <- c ("abcd","cdab", "cabd","c abd")
   
   # ^ inicio
   #$ fim da string
-  
-  #--------------------------------------------------
+  #
   string <- c ("amo a rural ")
-  grep ("ab+c", strings, value=TRUE)
-  # se tiver ab dentro da string é retornada
-  
-  
+  grep ("ab", strings, value=TRUE)
   grep ("^ab", strings, value=TRUE)
-  #se tiver no comeco da string
-  
   grep ("ab$", strings, value=TRUE)
-  
-  #se tiver ab no fim da string
-  
   gsub("\\d","_", string)
   
   grep("abc|abd", strings, value = TRUE)
-  
-#-----------------------------------------------------
+
   bomdia <- c ("bom-dia", "boa-tarde", "boa-noite")
   
   grep("boa-(tarde|noite)", bomdia, value=TRUE)
-  #pega so boa tarde ou boa noite
-#----------------------------------------------------
   
   
-  #-------------------------------------------------------
+  #
   
   
-  
-  #remove espacos em branco ou tabs
+  #remove espaÃ§os em branco ou tabs
   gsub(pattern = "[[:blank:]]", replacement = "", texto)
   
-  #Substitui pontuacao por espacos em branco
+  #Substitui pontuaÃ§Ã£o por espaÃ§os em branco
   gsub (pattern = "[[:punct:]]", replacement=" ", texto)
   
   #remove caracteres alfanumeriocos
   
   gsub (pattern = "[[:alnum:]]", replacement = "", texto)
-  #----------------------------------------------------------
-  
-  
-  
-  string <- "meu numero é 1006781"
-  #Extrai somente o numero da string
-  gsub (pattern ="[^0-9]", replacement = "", x=string)
-  
-  
-  valores <- c("A1", "A2", "A3","A4","A5","A6", "A7")
-  #vai buscar as posições pesquisadas
-  grep (pattern = "A1|A4", x=valores, value= FALSE)
-  
-  
-  # . é qualquer coisa
-  # * é antes
-#vai pegar tudo antes dos dois pontos e vai substituir= replacement por branco
-  StringN <- c("G1:E001", "G2:E002", "G3:E003" )
-  gsub (pattern= ".*:", replacement = "", x= StringN)
-  #extrair informaçoes contidas dentro de uma string
-  
-  
-  
-  #[:punct:]: punctuation.
-  #[:alpha:]: letters.
-  #[:lower:]: lowercase letters.
-  #[:upper:]: upperclass letters.
-  #[:digit:]: digits.
-  #[:xdigit:]: hex digits.
-  #[:alnum:]: letters and numbers.
-  #[:cntrl:]: control characters.
-  #[:graph:]: letters, numbers, and punctuation.
-  #[:print:]: letters, numbers, punctuation, and whitespace.
-  #[:space:]: space characters (basically equivalent to \s).
-  #[:blank:]: space and tab.
-  
-  
-  v<-c(20,30,4,934,1077,22)
-  
-  paste(v,set ="m",sep="")
-  #set ele ponha a letra do lado enquanto sep ele remove espaço em branco
-  
-  library (stringr)
-  
-  stringS <- "Oq vai fazer amanha? (Estudar CPAD) ver video (jogar) ( jogar)"
-  
-  str_extract_all(stringS, "\\(.*?\\)")[[1]]
-  
-  
-  #pegar emails
-  
-  stringMail <- c ("reneandraderhc@gmail.com que porcara reneandraderhc@hotmail.com")
-  
-  str_extract_all(string=stringMail, pattern= "\\S*@\\S*")
-  
-  #\\s procura qualquer coisa 
-  #\\ pega tudo antes do @ que não seja espaço
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  #Exercicio lista string 
-  
-  txt = c("eeer","3ca1n","fg","can","man","sigmean","fa3nta","fan")
-  
-  grep ("^c|^m|^f+(an$)",txt,value=TRUE)
-  
-  library(stringr)
-  
-  txt2 = "eeer3GHJca1nfgSigmanfaUIOntafan"
-  str_extract_all(string=txt2,pattern="[[:upper:][:digit:]]") 
-  grep("[0-9]",txt2,value=TRUE)
-  
-  
-  txt = "tttyUFRPE19PPGIAkjgkjghk2j34j321UFRPEcapdPPGIA"
-  
-  str_extract_all(string=txt,pattern="UFRPE(19|capd)PPGIA")
-  #\\s pega atras e com * pega tudo
-  
-  aux<- read.delim("https://www.dropbox.com/s/4yr2woj8r1p5sbn/gapminderDataFiveYear.txt?dl=1")
 
-  str_extract_all(string=aux,pattern ="\\S*and\\S",simplify = FALSE)
-  
-  grep(pattern = "^Ba",aux$country, value=TRUE)
-  grep(pattern = "land$",aux$country,value=TRUE)
-  grep(pattern = "Ga",aux$country,value=TRUE)
- #R = 156
-  str_count {stringr}	
   
   
-  carlos <- c("No meio do caminho tinha uma pedra
-tinha uma pedra no meio do caminho
-tinha uma pedra
-no meio do caminho tinha uma pedra.
+  
+  
+  #EX 9 
+  gatosloucos<-as.data.frame(read.csv("https://www.dropbox.com/s/w4xv9urbowbig3s/catsM.csv?dl=1"))gatosloucos
+  mean(gatosloucos$Bwt) 
+  #media dos cats
+  caracol_data<- read.csv(file = "Snail_feeding.csv", header = TRUE, strip.white = TRUE, na.strings = "")
+  mean(caracol_data$Depth)
+  
+is.na(caracol_data)
 
-Nunca me esquecerei desse acontecimento
-na vida de minhas retinas tão fatigadas.
-Nunca me esquecerei que no meio do caminho
-tinha uma pedra
-tinha uma pedra no meio do caminho
-no meio do caminho tinha uma pedra.")
-  
-  str_count(string, pattern = " ")
-  
-  
-  
-  ventoinha <-c("abc","xyz", "abc|xyz")
-  
-  grep ("abc", vetorinha, value=TRUE)
-  
-  
-  ventoinha2 <-c("asccbbbbcbcccc","ac","abcbcbcbc","azc","abbbbbbbb","abc" )
-  grep("a.[bc]+",ventoinha2,value=TRUE)
-  
-  ventoinha3 <- c ("abc", "ac", "abbb","bbc")
-  grep("ab+c", ventoinha3,value=TRUE)
-  
-  ventoinha4<-c("battle", "hot","green","swamping.", "jump up.", "undulate?", "is.?")
-  str_extract_all(string=ventoinha4, pattern ="[a-z]+[\.\?!]" )
-  
-  ventoinha5 <-c("Butt=","BotHEr,=","Ample","FIdDIE7h","Brittle=","Other.=")
- str_extract_all (string = ventoinha5,pattern = "[a-zA-Z]*[^,]=" )
-  
- ventoinha6<-c("A B","C! d", "e f","g. H"," i? J","K L")
-  str_extract_all(string=ventoinha6, pattern ="[a-z][\.\?!]\s+[A-Z]" )
-  
-  ventoinha7 <-c("abababa","aaba","aabbaa","aba","aabababa")
-  grep("a(ab)*a",ventoinha7,value=TRUE)
-  
-  
-  martin <- c (  "Eu estou contente em unir-me com vocês no dia que entrará para a história como a maior demonstração pela liberdade na história de nossa nação.
-               
-               Cem anos atrás, um grande americano, na qual estamos sob sua simbólica sombra, assinou a Proclamação de Emancipação. Esse importante decreto veio como um grande farol de esperança para milhões de escravos negros que tinham murchados nas chamas da injustiça. Ele veio como uma alvorada para terminar a longa noite de seus cativeiros.
-               Mas cem anos depois, o Negro ainda não é livre.
-               Cem anos depois, a vida do Negro ainda é tristemente inválida pelas algemas da segregação e as cadeias de discriminação.
-               Cem anos depois, o Negro vive em uma ilha só de pobreza no meio de um vasto oceano de prosperidade material. Cem anos depois, o Negro ainda adoece nos cantos da sociedade americana e se encontram exilados em sua própria terra. Assim, nós viemos aqui hoje para dramatizar sua vergonhosa condição.
-               
-               De certo modo, nós viemos à capital de nossa nação para trocar um cheque. Quando os arquitetos de nossa república escreveram as magníficas palavras da Constituição e a Declaração da Independência, eles estavam assinando uma nota promissória para a qual todo americano seria seu herdeiro. Esta nota era uma promessa que todos os homens, sim, os homens negros, como também os homens brancos, teriam garantidos os direitos inalienáveis de vida, liberdade e a busca da felicidade. Hoje é óbvio que aquela América não apresentou esta nota promissória. Em vez de honrar esta obrigação sagrada, a América deu para o povo negro um cheque sem fundo, um cheque que voltou marcado com fundos insuficientes.
-               
-               Mas nós nos recusamos a acreditar que o banco da justiça é falível. Nós nos recusamos a acreditar que há capitais insuficientes de oportunidade nesta nação. Assim nós viemos trocar este cheque, um cheque que nos dará o direito de reclamar as riquezas de liberdade e a segurança da justiça.
-               
-               Nós também viemos para recordar à América dessa cruel urgência. Este não é o momento para descansar no luxo refrescante ou tomar o remédio tranqüilizante do gradualismo.
-               Agora é o tempo para transformar em realidade as promessas de democracia.
-               Agora é o tempo para subir do vale das trevas da segregação ao caminho iluminado pelo sol da justiça racial.
-               Agora é o tempo para erguer nossa nação das areias movediças da injustiça racial para a pedra sólida da fraternidade. Agora é o tempo para fazer da justiça uma realidade para todos os filhos de Deus.
-               
-               Seria fatal para a nação negligenciar a urgência desse momento. Este verão sufocante do legítimo descontentamento dos Negros não passará até termos um renovador outono de liberdade e igualdade. Este ano de 1963 não é um fim, mas um começo. Esses que esperam que o Negro agora estará contente, terão um violento despertar se a nação votar aos negócios de sempre
-               
-               . Mas há algo que eu tenho que dizer ao meu povo que se dirige ao portal que conduz ao palácio da justiça. No processo de conquistar nosso legítimo direito, nós não devemos ser culpados de ações de injustiças. Não vamos satisfazer nossa sede de liberdade bebendo da xícara da amargura e do ódio. Nós sempre temos que conduzir nossa luta num alto nível de dignidade e disciplina. Nós não devemos permitir que nosso criativo protesto se degenere em violência física. Novamente e novamente nós temos que subir às majestosas alturas da reunião da força física com a força de alma. Nossa nova e maravilhosa combatividade mostrou à comunidade negra que não devemos ter uma desconfiança para com todas as pessoas brancas, para muitos de nossos irmãos brancos, como comprovamos pela presença deles aqui hoje, vieram entender que o destino deles é amarrado ao nosso destino. Eles vieram perceber que a liberdade deles é ligada indissoluvelmente a nossa liberdade. Nós não podemos caminhar só.
-               
-               E como nós caminhamos, nós temos que fazer a promessa que nós sempre marcharemos à frente. Nós não podemos retroceder. Há esses que estão perguntando para os devotos dos direitos civis, Quando vocês estarão satisfeitos?
-               
-               Nós nunca estaremos satisfeitos enquanto o Negro for vítima dos horrores indizíveis da brutalidade policial. Nós nunca estaremos satisfeitos enquanto nossos corpos, pesados com a fadiga da viagem, não poderem ter hospedagem nos motéis das estradas e os hotéis das cidades. Nós não estaremos satisfeitos enquanto um Negro não puder votar no Mississipi e um Negro em Nova Iorque acreditar que ele não tem motivo para votar. Não, não, nós não estamos satisfeitos e nós não estaremos satisfeitos até que a justiça e a retidão rolem abaixo como águas de uma poderosa correnteza.
-               
-               Eu não esqueci que alguns de você vieram até aqui após grandes testes e sofrimentos. Alguns de você vieram recentemente de celas estreitas das prisões. Alguns de vocês vieram de áreas onde sua busca pela liberdade lhe deixaram marcas pelas tempestades das perseguições e pelos ventos de brutalidade policial. Você são o veteranos do sofrimento. Continuem trabalhando com a fé que sofrimento imerecido é redentor. Voltem para o Mississippi, voltem para o Alabama, voltem para a Carolina do Sul, voltem para a Geórgia, voltem para Louisiana, voltem para as ruas sujas e guetos de nossas cidades do norte, sabendo que de alguma maneira esta situação pode e será mudada. Não se deixe caiar no vale de desespero.
-               
-               Eu digo a você hoje, meus amigos, que embora nós enfrentemos as dificuldades de hoje e amanhã. Eu ainda tenho um sonho. É um sonho profundamente enraizado no sonho americano.
-               
-               Eu tenho um sonho que um dia esta nação se levantará e viverá o verdadeiro significado de sua crença - nós celebraremos estas verdades e elas serão claras para todos, que os homens são criados iguais.
-               
-               Eu tenho um sonho que um dia nas colinas vermelhas da Geórgia os filhos dos descendentes de escravos e os filhos dos desdentes dos donos de escravos poderão se sentar junto à mesa da fraternidade.
-               
-               Eu tenho um sonho que um dia, até mesmo no estado de Mississippi, um estado que transpira com o calor da injustiça, que transpira com o calor de opressão, será transformado em um oásis de liberdade e justiça.
-               
-               Eu tenho um sonho que minhas quatro pequenas crianças vão um dia viver em uma nação onde elas não serão julgadas pela cor da pele, mas pelo conteúdo de seu caráter. Eu tenho um sonho hoje!
-                 
-                 Eu tenho um sonho que um dia, no Alabama, com seus racistas malignos, com seu governador que tem os lábios gotejando palavras de intervenção e negação; nesse justo dia no Alabama meninos negros e meninas negras poderão unir as mãos com meninos brancos e meninas brancas como irmãs e irmãos. Eu tenho um sonho hoje!
-                 
-                 Eu tenho um sonho que um dia todo vale será exaltado, e todas as colinas e montanhas virão abaixo, os lugares ásperos serão aplainados e os lugares tortuosos serão endireitados e a glória do Senhor será revelada e toda a carne estará junta.
-               
-               Esta é nossa esperança. Esta é a fé com que regressarei para o Sul. Com esta fé nós poderemos cortar da montanha do desespero uma pedra de esperança. Com esta fé nós poderemos transformar as discórdias estridentes de nossa nação em uma bela sinfonia de fraternidade. Com esta fé nós poderemos trabalhar juntos, rezar juntos, lutar juntos, para ir encarcerar juntos, defender liberdade juntos, e quem sabe nós seremos um dia livre. Este será o dia, este será o dia quando todas as crianças de Deus poderão cantar com um novo significado.
-               
-               Meu país, doce terra de liberdade, eu te canto.
+#which.min (caracol_data$Distance&caracol_data$Sex=="female")
 
-Terra onde meus pais morreram, terra do orgulho dos peregrinos,
+caracol_data$Snail.ID[(caracol_data$Size=="small")&(caracol_data$Sex=="female")&(caracol_data$Distance==1)]
+#condicional de comparaÃ§Ãµes da tabela.
 
-De qualquer lado da montanha, ouço o sino da liberdade!
-               
-               E se a América é uma grande nação, isto tem que se tornar verdadeiro.
-               
-               E assim ouvirei o sino da liberdade no extraordinário topo da montanha de New Hampshire.
-               
-               Ouvirei o sino da liberdade nas poderosas montanhas poderosas de Nova York.
-               
-               Ouvirei o sino da liberdade nos engrandecidos Alleghenies da Pennsylvania.
-               
-               Ouvirei o sino da liberdade nas montanhas cobertas de neve Rockies do Colorado.
-               
-               Ouvirei o sino da liberdade nas ladeiras curvas da Califórnia.
-               
-               Mas não é só isso. Ouvirei o sino da liberdade na Montanha de Pedra da Geórgia.
-               
-               Ouvirei o sino da liberdade na Montanha de Vigilância do Tennessee.
-               
-               Ouvirei o sino da liberdade em todas as colinas do Mississipi.
-               
-               Em todas as montanhas, ouviu o sino da liberdade.
-               
-               E quando isto acontecer, quando nós permitimos o sino da liberdade soar, quando nós deixarmos ele soar em toda moradia e todo vilarejo, em todo estado e em toda cidade, nós poderemos acelerar aquele dia quando todas as crianças de Deus, homens pretos e homens brancos, judeus e gentios, protestantes e católicos, poderão unir mãos e cantar nas palavras do velho spiritual negro:
-                 
-                 Livre afinal, livre afinal.
 
-Agradeço ao Deus todo-poderoso, nós somos livres afinal.  ")
-  
-  
-  str_extract_all(string = martin,pattern="(N|n)egr(a|o)|(N|n)egr(as|os)")
-  
-  #so pega negro, negros, negras
-  
+PassaroLoco<-read.table(file = "Sparrows.csv", header = TRUE, sep=",")
+View(PassaroLoco)
+
+is.na(PassaroLoco)
+
+PassaroLoco$Species[max(PassaroLoco$Head, na.rm = TRUE)]
+
+PassaroLoco$Species[min(PassaroLoco$Head, na.rm = TRUE)]
+
+which((PassaroLoco$Sex!="Female")&(PassaroLoco$Sex!="Male"))
+
+#colnames(PassaroLoco)[names(PassaroLoco$Sex)=="Femal"]<-"Female"
+
+library(data.table)
+#install.packages("data.table")
+
+#colnames(PassaroLoco)<-c("Femal","Female")
+
+which((PassaroLoco$Sex=="Female")& mean(PassaroLoco$Tarsus))
+
+mean(PassaroLoco$Sex=="Male",PassaroLoco$Tarsus)
+
+mean(PassaroLoco$Tarsus[PassaroLoco$Sex=="Male"])
+
+#pega a media especifica da coluna do Sexo no caso masculino
+
+mean(PassaroLoco$Tarsus[PassaroLoco$Sex=="Female"])
+
+  #PassaroLoco[order(PassaroLoco$Sex=="Female"),]
+ 
+  which(is.na(PassaroLoco$Wing))
+PassaroLoco[64,3]<-59
+PassaroLoco[250,3]<-56.5
+PassaroLoco[806,3]<-57
+#substituir
+
+mean(PassaroLoco$Wing)
+
+duplicated(PassaroLoco)
+#Olhar linhas duplicadas 
+library(dplyr)
+
+Sparrows_Ordenado<-PassaroLoco[with(PassaroLoco,order(PassaroLoco$Wing,PassaroLoco$Head)),]
+
+
+arrange(PassaroLoco,PassaroLoco$Wing,PassaroLoco$Head)
