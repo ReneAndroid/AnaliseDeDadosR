@@ -509,3 +509,40 @@ Sparrows_Ordenado<-PassaroLoco[with(PassaroLoco,order(PassaroLoco$Wing,PassaroLo
 
 
 arrange(PassaroLoco,PassaroLoco$Wing,PassaroLoco$Head)
+
+
+#manipulacao AVANCED
+library(dplyr)
+
+
+df=data.frame(Theoph)
+
+df %>% pull(Dose)
+
+df %>% select(3:3)
+#apenas a coluna 3
+df %>% filter(Dose>5)
+#doses que sejam maior que 5
+df %>% slice(10-20)
+#Fatiar da linha 10-20
+
+
+df %>% filter(Dose>5 & Time>mean(df$Time))
+#Qual comando apresenta os dados para as doses maiores que 5 e cujo o tempo desde a administração do medicamento (Time) é maior que a média do mesmo? Use apenas um único comando. Ao submeter a resposta remova todos os espaços em branco. *
+df %>%arrange(desc(Wt))
+#Qual comando organizar df por peso (decrescente) ? Ao submeter a resposta remova todos os espaços em branco. *
+df %>%arrange(desc(Wt))
+
+attach(df)
+#df[order(Wt,-Time),]
+df %>%arrange(Wt,desc(Time))
+
+#Qual comando organizar df por peso (crescente) e tempo (decrescente) ?Ao submeter a resposta remova todos os espaços em branco. *
+
+#df$tendencia <-df$Time; df$tendencia SEM DPLYR
+
+df<- df %>% mutate(tendencia=Time) #CORRETO COM DIPLYR
+#cria nova coluna tedencia
+max(df$conc)
+#maior concentração de teofilina
+df %>% slice_max(conc)
