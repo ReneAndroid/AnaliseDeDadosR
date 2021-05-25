@@ -1,7 +1,7 @@
 getwd()
 
 
-#Vai chupar uma rola e uma macaca e um mama cobra
+#Consertar isso
 
 boat.names <- c("A", "B" , "C" ,"D")
 boat.colors <- c ("Black", "green", "pink", "blue")
@@ -523,7 +523,7 @@ df %>% select(3:3)
 #apenas a coluna 3
 df %>% filter(Dose>5)
 #doses que sejam maior que 5
-df %>% slice(10-20)
+df %>% slice(10:20)
 #Fatiar da linha 10-20
 
 
@@ -533,8 +533,7 @@ df %>%arrange(desc(Wt))
 #Qual comando organizar df por peso (decrescente) ? Ao submeter a resposta remova todos os espaços em branco. *
 df %>%arrange(desc(Wt))
 
-attach(df)
-#df[order(Wt,-Time),]
+#df[order(Wt,-Time)
 df %>%arrange(Wt,desc(Time))
 
 #Qual comando organizar df por peso (crescente) e tempo (decrescente) ?Ao submeter a resposta remova todos os espaços em branco. *
@@ -543,6 +542,88 @@ df %>%arrange(Wt,desc(Time))
 
 df<- df %>% mutate(tendencia=Time) #CORRETO COM DIPLYR
 #cria nova coluna tedencia
-max(df$conc)
+#max(df$conc)
 #maior concentração de teofilina
 df %>% slice_max(conc)
+
+
+#=======================================================================================
+ontime <-read.csv(file = "673598238_T_ONTIME_REPORTING.csv",  quote ="\"" , sep=",")
+unique <-read.csv(file="L_UNIQUE_CARRIERS.csv_", quote="\"", sep=",")
+
+combinacao <-merge(x= ontime,y= unique, by.x ="OP_UNIQUE_CARRIER" ,by.y ="Code" , all = TRUE)
+
+
+#-=-------------------------------------------------------------
+combinacao %>%slice_max(DEP_DELAY_NEW)
+
+is.na(combinacao)
+
+
+combinacao$Description[]
+
+combinacao %>% slice_max
+
+mean(combinacao$DEP_DELAY_NEW[combinacao$Description=="JetBlue Airways"], na.rm = TRUE)
+mean(combinacao$DEP_DELAY_NEW[combinacao$Description=="American Airlines Inc."], na.rm = TRUE)
+mean(combinacao$DEP_DELAY_NEW[combinacao$Description=="Hawaiian Airlines Inc."], na.rm = TRUE)
+mean(combinacao$DEP_DELAY_NEW[combinacao$Description=="Endeavor Air Inc."], na.rm = TRUE)
+mean(combinacao$DEP_DELAY_NEW[combinacao$Description=="SkyWest Airlines Inc."], na.rm = TRUE)
+mean(combinacao$DEP_DELAY_NEW[combinacao$Description=="Southwest Airlines Co."], na.rm = TRUE)
+
+
+mean(combinacao$DEP_DELAY_NEW)
+
+
+
+
+which.max(cancer_stats$Male.Cases/(cancer_stats$Male.Cases+cancer_stats$Male.Deaths))
+
+#(combinacao$Description=="Southwest Airlines Co."& combinacao$DEP_DELAY_NEW)/(combinacao$DEP_DELAY_NEW)
+mean(combinacao$DEP_DELAY_NEW[combinacao$Description=="Southwest Airlines Co."], na.rm = TRUE)/mean(combinacao$DEP_DELAY_NEW,na.rm = TRUE)
+mean(combinacao$DEP_DELAY_NEW[combinacao$Description=="SkyWest Airlines Inc."], na.rm = TRUE)/mean(combinacao$DEP_DELAY_NEW,na.rm = TRUE)
+mean(combinacao$DEP_DELAY_NEW[combinacao$Description=="Hawaiian Airlines Inc."], na.rm = TRUE)/mean(combinacao$DEP_DELAY_NEW,na.rm = TRUE)
+mean(combinacao$DEP_DELAY_NEW[combinacao$Description=="American Airlines Inc."], na.rm = TRUE)/mean(combinacao$DEP_DELAY_NEW,na.rm = TRUE)
+mean(combinacao$DEP_DELAY_NEW[combinacao$Description=="Endeavor Air Inc."], na.rm = TRUE)/mean(combinacao$DEP_DELAY_NEW,na.rm = TRUE)
+
+#pega a media especifica da coluna do Sexo no caso masculino
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+library(tidyr)
+
+
+
+TB <-data.frame (read.csv("http://stat405.had.co.nz/data/tb.csv"))
+TB$
+
+TB$new_sp<-NULL
+
+
+novoTB<-TB %>% gather(N_casos, Codigo, 3:22)
+is.na(novoTB)
+mean(novoTB$Codigo[novoTB$iso2=="US"], na.rm=TRUE)
+mean(novoTB$Codigo, na.rm = TRUE)  
+
+mean(combinacao$DEP_DELAY_NEW[combinacao$Description=="JetBlue Airways"], na.rm = TRUE)
+
+#separate(novoTB,Codigo,into = ())
+
+sum(novoTB$year=="2009", na.rm = TRUE)
+options(max.print=999999)
+
+is.na(TB)
+
+sum(novoTB$iso2=="TH",na.rm = TRUE)
