@@ -1,7 +1,7 @@
 getwd()
 
 
-#Consertar isso
+#vetores create
 
 boat.names <- c("A", "B" , "C" ,"D")
 boat.colors <- c ("Black", "green", "pink", "blue")
@@ -12,14 +12,14 @@ boat.costs <- c(52,80,20,100)
 boat.prices [boat.ages>100]
 
 boat.costs %in% c (52,80)
-#SAber se um vetor esta contido em outro
+#Saber se um vetor esta contido em outro
 
 boat.ages [which(boat.ages>144)]
 #pega o maior valor que pertence ao vetor
 
 which(boat.ages>145)
-#pega o valor onde a casa est? maior doque 45
-c
+#pega o valor onde a casa esta maior do que 45
+
 sum (boats.ages>0)
 #compara??o simples de todas posi??es do vetor
 mean (boat.ages>0)
@@ -31,7 +31,7 @@ v<- c(v,5) #adiciona o 5 no final do vetor
 
 v<- c (1,2,3,NA,6)
 is.na (v)
-#vai retornar valor l?gico
+#vai retornar valor logico
 mean (v, na.rm=TRUE)
 #desconsidera 
 
@@ -76,13 +76,19 @@ max(mediaB)
 
 is.na(vetor01)
 #Retorna um vetor lógico com TRUE para valor ausente (NA)
+
+
 mean(vetor01,na.rm=TRUE)
 #resposta da média da nota
+
+
 sd(vetor01,na.rm=TRUE) 
 #calcular o desvio padrao do vetor removendo NA
 
 median(vetor01, na.rm = TRUE)
 # mediana do vetor removendo NA
+
+
 sum(is.na(vetor01))
 # soma todos NA do vetor
 
@@ -310,31 +316,41 @@ cat("EU","AMO ", "RURAL")
 
 
 
-#Familia apply na porra do datset
+#Familia apply no datset
 
 bebidas <- c ("Brahma", "cacildis", " heineken","Skol","Corona", "BudLight", "Debron", "buderweiser","Ekaut","Snoe beer","Bavaria","Bohemia","Crystal","Kaiser","Itaipava","Schin","Antartica","Amstel","Colorado","Capunga")
 
 set.seed(100)
 #gerar os memos valores aleatorios
+
 precos <- runif(20, min = 2, max=10)
 vendas <-runif(20, min=20, max=100)
+
+
 estoques<-sample(c(20:50),size = 20,replace = TRUE)
 #vinta volores de 20a 50
 
 dataset_lojas <- data.frame(id_produto=c(1:20), Bebidas=bebidas,preco=precos,total_vendas=vendas,total_estoques = estoques)
 head(dataset_lojas)
 
+
+
 apply(X=dataset_lojas[, -c(1,2)],MARGIN = 2, FUN = sum)
 #funcao soma, margen 2 que ? a coluna se fosse 1 seria linhas
 #todas com excecao -c 1 e 2
+
+
+
 lapply(X = dataset_lojas[,-c(1,2)], FUN=sum)
 #retorna em uma lista
+
+
+
 sapply(X=dataset_lojas[,-c(1,2)], FUN=sum)
 #retornae m vetor
-#A fun?ao (FUN) pode ser criada
+#A funcao (FUN) pode ser criada
 
 sapply(X=dataset_lojas, FUN=class)
-
 
 #para ver as classes
 
@@ -459,6 +475,8 @@ is.na(caracol_data)
 
 #which.min (caracol_data$Distance&caracol_data$Sex=="female")
 
+
+
 caracol_data$Snail.ID[(caracol_data$Size=="small")&(caracol_data$Sex=="female")&(caracol_data$Distance==1)]
 #condicional de comparações da tabela.
 
@@ -476,8 +494,10 @@ which((PassaroLoco$Sex!="Female")&(PassaroLoco$Sex!="Male"))
 
 #colnames(PassaroLoco)[names(PassaroLoco$Sex)=="Femal"]<-"Female"
 
+
 library(data.table)
 #install.packages("data.table")
+
 
 #colnames(PassaroLoco)<-c("Femal","Female")
 
@@ -485,13 +505,18 @@ which((PassaroLoco$Sex=="Female")& mean(PassaroLoco$Tarsus))
 
 mean(PassaroLoco$Sex=="Male",PassaroLoco$Tarsus)
 
+
+
 mean(PassaroLoco$Tarsus[PassaroLoco$Sex=="Male"])
 
 #pega a media especifica da coluna do Sexo no caso masculino
 
+
+
 mean(PassaroLoco$Tarsus[PassaroLoco$Sex=="Female"])
 
-  #PassaroLoco[order(PassaroLoco$Sex=="Female"),]
+#pega a media especifica da coluna do Sexo no caso feminino
+
  
   which(is.na(PassaroLoco$Wing))
 PassaroLoco[64,3]<-59
@@ -502,8 +527,11 @@ PassaroLoco[806,3]<-57
 mean(PassaroLoco$Wing)
 
 duplicated(PassaroLoco)
-#Olhar linhas duplicadas 
+#Olhar linhas duplicadas
+
+
 library(dplyr)
+#Abrir a bibliotece
 
 Sparrows_Ordenado<-PassaroLoco[with(PassaroLoco,order(PassaroLoco$Wing,PassaroLoco$Head)),]
 
@@ -516,25 +544,37 @@ library(dplyr)
 
 
 df=data.frame(Theoph)
+#abrir o dataset theoph
 
 df %>% pull(Dose)
 
 df %>% select(3:3)
 #apenas a coluna 3
+
+
 df %>% filter(Dose>5)
 #doses que sejam maior que 5
+
+
 df %>% slice(10:20)
 #Fatiar da linha 10-20
 
 
 df %>% filter(Dose>5 & Time>mean(df$Time))
 #Qual comando apresenta os dados para as doses maiores que 5 e cujo o tempo desde a administração do medicamento (Time) é maior que a média do mesmo? Use apenas um único comando. Ao submeter a resposta remova todos os espaços em branco. *
+
 df %>%arrange(desc(Wt))
 #Qual comando organizar df por peso (decrescente) ? Ao submeter a resposta remova todos os espaços em branco. *
+
 df %>%arrange(desc(Wt))
+#organizar por ordem decrescente
 
 #df[order(Wt,-Time)
+
+
 df %>%arrange(Wt,desc(Time))
+#Organizar por ordem crescente  e descrescente
+
 
 #Qual comando organizar df por peso (crescente) e tempo (decrescente) ?Ao submeter a resposta remova todos os espaços em branco. *
 
@@ -627,3 +667,134 @@ options(max.print=999999)
 is.na(TB)
 
 sum(novoTB$iso2=="TH",na.rm = TRUE)
+
+
+
+
+
+#Primeira VA
+
+#1
+strg <- c("Voda 30", "bylinky 25", "ZEM 23", "zlAto 22")
+
+
+tolower(paste(strg,set='%',sep=''))
+
+#paste0("^",strg,"%")
+#coloca ^ antes e $ depois 
+
+
+#2 
+teste <- c("5!eAZ","!6!rrrrDFGT","R99Tf34!RR","123?aSd")
+grep ("^([0-9][[:punct:]][a-z])", teste, value=TRUE)
+
+
+#3
+
+library(stringr)
+library(readr)
+#ler pra ficar em vetor unico
+df <-read_file("gambler.txt")
+nchar(df)
+str_length(df)    
+#ambas funcoes acima contam os caracteres 
+
+
+
+
+
+
+
+
+
+
+
+
+#funcion
+
+
+
+#4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ontime <-read.csv(file = "673598238_T_ONTIME_REPORTING.csv",  quote ="\"" , sep=",")
+http <-c ("www.dogman.com", "http://rotterdam.com", "https://facebook.com", "httpx://sims.com", "fungame.http","http:/")
+
+grep ("(^http)+(:|s)",http,value=TRUE)
+
+library(ggplot2)
+library(dplyr)
+
+#Diamonds
+txt<-diamonds
+
+is.na(txt)
+mean(txt$price[txt$carat>0.7 & txt$cut=="Very Good"], na.rm = TRUE)
+
+
+#2
+
+txt$color[min(txt$price[txt$carat>0.5])]
+
+
+sum(txt$cut=="Premium")
+mean(text$cut)
+
+#Questão Fertility
+library(AER)
+
+Fatality<-data("Fertility")
+
+Fertility%>%slice(35:50)
+is.na(Fertility)
+mean(Fertility$work>30&Fertility$morekids=="yes",na.rm = TRUE)
+
+
+#2
+
+sum(Fertility$gender1=="male" & (Fertility$age>21 & Fertility$age<25) ,na.rm = TRUE)
+
+sum(Fertility$gender1=="male")
+
+
+#
+
+tx2<-read.csv(file="Forbes2000_V2.csv")
+tx2 %>% arrange((marketvalue))
+tx2 %>% filter(X==1234)
+tx2 %>% filter(category=="Banking")
+
+
+
+Catfish <- read_csv("Catfish.csv")
+tratamento<-read.csv(file="Treatment.csv")
+
+head(Catfish)
+str(Catfish)
+
+
+competition <-data.frame (read.csv("https://docs.google.com/drawings/d/1-8biPvM3H8RaFFgLWttnnCuntSZ8lyKz8zvodemd5XY/edit?usp=sharing "))
+
+casosCompletos<-function(df,linhas=NA){
+  
+  
+}
